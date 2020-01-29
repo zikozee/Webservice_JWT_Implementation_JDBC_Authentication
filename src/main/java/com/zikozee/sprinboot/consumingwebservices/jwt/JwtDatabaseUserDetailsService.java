@@ -46,7 +46,7 @@ class JwtDatabaseUserDetailsService implements UserDetailsService {
             .filter(user -> user.getUsername().equals(username)).findFirst();
 
     if (!findFirst.isPresent()) {
-      throw new UsernameNotFoundException(String.format("USER_NOT_FOUND '%s'.", username));
+      throw new UsernameNotFoundException("USER_NOT_FOUND " + username);
     }
 
     return findFirst.get();
